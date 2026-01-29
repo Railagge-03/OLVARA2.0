@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link href="style.css" rel="stylesheet">
+	</head>
+	<body>
+
+	<header id="navbar">
+        <div class="logo">OLVARA<span>PARFUME</span></div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html" class="active">Collections</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="javascript:void(0)" class="cart-icon" onclick="sendToWhatsapp()">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+		<section class="catalog" id="catalog" style="padding-top: 120px; padding-bottom: 50px;">
+    <div class="section-title">
+        <h2>OUR COLLECTIONS</h2>
+        <p style="letter-spacing: 2px; color: #888; margin-top: 10px;">Pilih karakter aromamu</p>
+    </div>
+
+    <div class="product-grid">
+        
+        <div class="product-card">
+            <div class="product-img">
+                <img src="parfume1.jpeg" alt="Pacefull">
+                <div class="badge">BEST SELLER</div>
+            </div>
+            <div class="product-info">
+                <h3>PEACEFULL</h3>
+                <p class="price">Rp 60.000</p>
+                <p class="desc">Aroma segar laut dipadukan dengan citrus yang membangkitkan energi.</p>
+                <button onclick="addToCart('PEACEFULL')" class="add-btn">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img">
+                <img src="parfume2.jpeg" alt="Bold Essence">
+            </div>
+            <div class="product-info">
+                <h3>ROYAL BLUE</h3>
+                <p class="price">Rp 60.000</p>
+                <p class="desc">Perpaduan kayu cendana dan rempah yang kuat, cocok untuk pria berkarakter.</p>
+                <button onclick="addToCart('ROYAL BLUE')" class="add-btn">ADD TO CART</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img">
+                <img src="parfume3.jpeg" alt="Mystic Rose">
+            </div>
+            <div class="product-info">
+                <h3>VANILLA GRACE</h3>
+                <p class="price">Rp 60.000</p>
+                <p class="desc">Aroma mawar yang lembut namun misterius, meninggalkan kesan mendalam.</p>
+                <button onclick="addToCart('VANILLA GRACE')" class="add-btn">ADD TO CART</button>
+            </div>
+        </div>
+
+    </div>
+			
+		</section>
+
+<div id="cart-modal" class="cart-overlay">
+    <div class="cart-content">
+        <span class="close-cart" onclick="closeCart()">&times;</span>
+        <h2 class="title-playfair">Your <span>Selection</span></h2>
+        <div class="gold-divider" style="margin: 10px auto 20px;"></div>
+        
+        <div id="cart-items-list" class="custom-scrollbar"></div>
+
+        <div class="checkout-form" style="margin-top: 20px; text-align: left;">
+            <div class="input-group">
+                <input type="text" id="cust-name" placeholder="Nama Lengkap" required>
+                <input type="tel" id="cust-phone" placeholder="Nomor WA (Contoh: 0812...)" required>
+                <textarea id="cust-address" placeholder="Alamat Pengiriman Lengkap" rows="2" required></textarea>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-price-box">
+                <span>Total Estimasi:</span>
+                <span id="cart-total-price">Rp 0</span>
+            </div>
+            <button onclick="proceedToCheckout()" class="btn-premium">PESAN SEKARANG</button>
+        </div>
+    </div>
+</div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLVARA | Customer Voice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="logo">OLVARA<span>PARFUME</span></div>
+
+	<div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    	</div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Collections</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section class="about-page" style="padding-top: 150px; padding-bottom: 80px;">
+    <div class="container-about">
+        <div class="about-hero">
+            <div class="about-img-frame">
+                <img src="4.jpeg" alt="Olvara Story">
+            </div>
+            <div class="about-text-main">
+                <h2 class="title-playfair">The Story of <span>Olvara</span></h2>
+                <p class="tagline">Elegance in Every Drop</p>
+                <div class="line-gold"></div>
+            </div>
+        </div>
+
+        <div class="about-content">
+            <div class="content-box">
+                <h3>Our Vision</h3>
+                <p>
+			OLVARA Dimulai dari sebuah ide sederhana : Bahwa wewenangi yang berkualitas tidak harus selalu sulit dijangkau. kami mempercayai parfum adalah bagian dari keseharian yang melengkapi cara kita berpakaian dan berinteraksi.
+			Kami membangun OLVARA untuk mereka yang mencari aroma yang pas dan berkarakter, tanpa perlu kesan yang berlebihan. Kami ingin setiap semprotannya menjadi pelengkap rasa percaya diri yang natural bagi siapa saja yang memakainya.
+		</p>
+            </div>
+            <div class="content-box">
+                <h3>The Quality</h3>
+                <p>Setiap botol diracik dengan konsentrasi <i>Extrait de Parfum</i> kualitas premium, memastikan aroma tetap bertahan menemani aktivitasmu hingga 12 jam lamanya.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="cart-modal" class="cart-overlay">
+    <div class="cart-content">
+        <span class="close-cart" onclick="closeCart()">&times;</span>
+        <h2 class="title-playfair">Your <span>Selection</span></h2>
+        <div class="gold-divider" style="margin: 10px auto 30px;"></div>
+        <div id="cart-items-list" class="custom-scrollbar"> </div>
+        <div class="cart-footer">
+            <div class="total-price-box">
+                <span>Total Estimasi:</span>
+                <span id="cart-total-price">Rp 0</span>
+            </div>
+            <button onclick="proceedToCheckout()" class="btn-premium">CHECKOUT VIA WA</button>
+        </div>
+    </div>
+</div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+	
+	</body>
+</html>

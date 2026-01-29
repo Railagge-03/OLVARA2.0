@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLVARA PARFUME | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="navbar">
+        <div class="logo">OLVARA<span>PARFUME</span></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="catalog.html">Collections</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" style="height: 100vh;">
+        <div class="hero-overlay">
+            <div class="hero-text">
+                <h5>LIMITED EDITION</h5>
+                <h1>ELEGANCE IN EVERY DROP</h1>
+                <p>Rasakan sensasi aroma premium yang tahan hingga 12 jam.</p>
+                <a href="catalog.html" class="btn-premium" style="text-decoration: none; display: inline-block;">EXPLORE COLLECTIONS</a>
+            </div>
+        </div>
+    </section>
+	
+<div id="cart-modal" class="cart-overlay">
+    <div class="cart-content">
+        <span class="close-cart" onclick="closeCart()">&times;</span>
+        <h2 class="title-playfair">Your <span>Selection</span></h2>
+        <div class="gold-divider" style="margin: 10px auto 20px;"></div>
+        
+        <div id="cart-items-list" class="custom-scrollbar"></div>
+
+        <div class="checkout-form" style="margin-top: 20px; text-align: left;">
+            <div class="input-group">
+                <input type="text" id="cust-name" placeholder="Nama Lengkap" required>
+                <input type="tel" id="cust-phone" placeholder="Nomor WA (Contoh: 0812...)" required>
+                <textarea id="cust-address" placeholder="Alamat Pengiriman Lengkap" rows="2" required></textarea>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-price-box">
+                <span>Total Estimasi:</span>
+                <span id="cart-total-price">Rp 0</span>
+            </div>
+            <button onclick="proceedToCheckout()" class="btn-premium">PESAN SEKARANG</button>
+        </div>
+    </div>
+</div>
+
+    <footer>
+
+	<section class="features-home" style="padding: 100px 8%;">
+        <div class="container-about">
+            <div class="header-content">
+                <h5 class="subtitle" style="color: #888; letter-spacing: 3px; text-align: center;">THE ESSENCE</h5>
+                <h2 class="title-main" style="text-align: center;">Why <span>Olvara?</span></h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="about-content" style="margin-top: 50px;">
+                <div class="content-box">
+                    <h3>Premium Scent</h3>
+                    <p>Menggunakan bibit parfum terbaik kelas dunia untuk memastikan aroma yang mewah dan berkelas di setiap semprotannya.</p>
+                </div>
+                <div class="content-box">
+                    <h3>Extra Long Lasting</h3>
+                    <p>Dengan konsentrasi <i>Extrait de Parfum</i>, aroma Olvara tetap setia menemani aktivitasmu hingga lebih dari 12 jam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+    <footer>
+        <div class="gold-divider"></div>
+        <p>&copy; 2026 OLVARA PARFUME. Crafted for the Bold.</p>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

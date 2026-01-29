@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLVARA | Customer Voice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="logo">OLVARA<span>PARFUME</span></div>
+
+	<div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    	</div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Collections</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="reviews-premium">
+        <div class="container-full">
+            <div class="header-content">
+                <h5 class="subtitle">VOICE OF ELEGANCE</h5>
+                <h2 class="title-main">Customer <span>Reviews</span></h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="review-wrapper">
+                <div class="form-container">
+                    <div class="glass-card">
+                        <h3>Share Your Experience</h3>
+                        <div class="rating-input" id="star-input">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="reviewer-name" placeholder="Full Name" required>
+                            <textarea id="review-text" placeholder="Tell us how it smells on you..." rows="5" required></textarea>
+                        </div>
+                        <button onclick="submitReview()" class="btn-premium">POST REVIEW</button>
+                    </div>
+                </div>
+
+                <div class="feed-container">
+                    <div id="review-list" class="review-scroll">
+                        <div class="loading-state">Syncing with server...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div id="cart-modal" class="cart-overlay">
+    <div class="cart-content">
+        <span class="close-cart" onclick="closeCart()">&times;</span>
+        <h2 class="title-playfair">Your <span>Selection</span></h2>
+        <div class="gold-divider" style="margin: 10px auto 30px;"></div>
+        <div id="cart-items-list" class="custom-scrollbar"></div>
+        <div class="cart-footer">
+            <div class="total-price-box">
+                <span>Total Estimasi:</span>
+                <span id="cart-total-price">Rp 0</span>
+            </div>
+            <button onclick="proceedToCheckout()" class="btn-premium">CHECKOUT VIA WA</button>
+        </div>
+    </div>
+</div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

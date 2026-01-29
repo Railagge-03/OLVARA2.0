@@ -1,0 +1,605 @@
+:root {
+    --primary: #ffffff;
+    --accent: #d4af37;
+    --bg-dark: #0a0a0a;
+    --card-bg: #151515;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--primary);
+    overflow-x: hidden; /* Biar gak goyang ke samping */
+}
+
+header {
+    position: fixed; top: 0; width: 100%;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 8%; z-index: 9999;
+    background: rgba(0,0,0,0.8);
+    transition: 0.4s;
+}
+
+header.sticky { background: #000; padding: 12px 8%; }
+
+.logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 2px; }
+.logo span { color: var(--accent); }
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav ul li a { text-decoration: none; color: #fff; font-size: 0.8rem; text-transform: uppercase; }
+
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+.bar { width: 25px; height: 3px; background: #fff; margin: 3px 0; transition: 0.3s; }
+
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1616948055600-8f940d05f63a?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+}
+.hero-overlay { height: 100%; width: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; }
+.hero-text { text-align: center; }
+.hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; }
+
+.hero-text p { margin-bottom: 35px; color: #ccc; }
+.cta-button { padding: 15px 35px; border: 1px solid #fff; color: #fff; text-decoration: none; transition: 0.3s; }
+.cta-button:hover { background: #fff; color: #000; }
+
+/*buat tulisan di bagian catalog*/
+.section-title {
+    text-align: center; /* Biar judulnya di tengah */
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif; /* Font yang sama kyk logo */
+    font-size: 3rem; 
+    font-weight: 700;
+    font-style: italic; /* Kasih kesan artistik kyk di botol parfum lo */
+    letter-spacing: 4px; /* Biar renggangnya tegas */
+    text-transform: uppercase;
+    color: var(--accent); /* Pake warna emas lo */
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Garis emas kecil di bawah tulisan biar makin cakep */
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+}
+
+.catalog { padding: 80px 8%; }
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 8%;
+}
+
+.product-img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* BIAR KOTAK SIMETRIS */
+    overflow: hidden;
+    border-radius: 15px; /* BIAR SUDUTNYA TUMPUL GAK LANCIP */
+    position: relative;
+    background: #1a1a1a;
+    transition: transform 0.3s ease; /* Dasar animasi */
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* BIAR FOTO GAK PENYET */
+    transition: transform 0.5s ease;
+}
+
+/* Efek pas Mouse nempel (Hover) */
+.product-card:hover .product-img {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.1); /* Zoom halus biar dramatis */
+}
+
+/* Efek pas DI-KLIK (Sesuai request lo biar ada nyawanya) */
+.product-card:active .product-img {
+    transform: scale(0.92); /* Mengecil dikit pas ditekan */
+    transition: 0.1s;
+}
+
+/* --- Style buat Button Add to cart --- */
+.add-btn {
+    width: 100%;
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+/* Efek warna ngalir dari kiri ke kanan */
+.add-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--accent);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.add-btn:hover {
+    color: #000;
+}
+
+.add-btn:hover::before {
+    left: 0;
+}
+
+/* Animasi pas diklik (Active) */
+.add-btn:active {
+    transform: scale(0.95);
+}
+
+footer {
+	text-align: center;
+	padding: 40px;
+	border-top: 1px solid #222;
+	font-size: 0.8rem;
+	color: #555;
+}
+
+/* -----Bagian About.html-----*/
+.container-about {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.about-hero {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+}
+
+.about-img-frame {
+    flex: 1;
+    position: relative;
+    border: 2px solid var(--accent);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.about-img-frame img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.about-text-main {
+    flex: 1.2;
+}
+
+.title-playfair {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-style: italic;
+    color: var(--primary);
+}
+
+.title-playfair span { color: var(--accent); }
+
+.line-gold {
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    margin: 20px 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.content-box {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border-bottom: 3px solid var(--accent);
+}
+
+.content-box h3 {
+    color: var(--accent);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.content-box p {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+/* --- PREMIUM REVIEWS SECTION --- */
+.reviews-premium {
+    padding: 180px 8% 100px;
+    background: radial-gradient(circle at top right, #1a1a1a, #0a0a0a);
+    min-height: 100vh;
+}
+
+.header-content { text-align: center; margin-bottom: 60px; }
+
+.title-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-style: italic;
+    letter-spacing: 3px;
+    color: #fff;
+}
+
+.title-main span { color: var(--accent); }
+
+.gold-divider {
+    width: 80px;
+    height: 2px;
+    background: var(--accent);
+    margin: 20px auto;
+}
+
+.review-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Glassmorphism Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.glass-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+/* Form Styling */
+.input-group input, .input-group textarea {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid #333;
+    padding: 15px;
+    color: #fff;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+    background: rgba(212, 175, 55, 0.05);
+}
+
+/* List Review Styling */
+.review-scroll {
+    max-height: 650px;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+.review-item {
+    background: #111;
+    border: 1px solid #222;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.review-item:hover {
+    transform: scale(1.02);
+    border-color: var(--accent);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.review-header strong { font-size: 1.1rem; letter-spacing: 1px; }
+
+/* Custom Scrollbar */
+.review-scroll::-webkit-scrollbar { width: 4px; }
+.review-scroll::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+@media (max-width: 992px) {
+    .review-wrapper { grid-template-columns: 1fr; }
+}
+
+.star {
+    font-size: 35px;
+    cursor: pointer;
+    color: #444;
+    transition: 0.2s;
+    position: relative; /* Pastiin posisinya relatif */
+    z-index: 101; /* Biar dia ada di lapisan paling depan */
+    display: inline-block;
+    user-select: none; /* Biar gak ke-block pas diklik cepet */
+    margin-right: 5px;
+}
+
+.star.active {
+    color: var(--accent) !important;
+}
+
+/* --- TOMBOL REVIEW PREMIUM --- */
+.btn-premium {
+    width: 100%;
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+    margin-top: 25px;
+    border-radius: 50px; /* Kita bikin oval biar beda dikit sama katalog tapi tetep elegan */
+    z-index: 1;
+}
+
+.btn-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+}
+
+.btn-premium:hover {
+    color: #000;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-premium:hover::before {
+    left: 0;
+}
+
+/* Pas tombol di-disabled (pas lagi ngirim data) */
+.btn-premium:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #444;
+    color: #444;
+}
+
+/* --- ANIMASI ACTIVE MENU --- */
+nav ul li a {
+    position: relative;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+/* Garis emas pas di-hover */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%; /* Garis bakal manjang pas aktif atau di-hover */
+}
+
+nav ul li a.active {
+    color: var(--accent); /* Tulisan jadi emas pas aktif */
+    font-weight: 600;
+}
+
+/* -----Buat Hamburger Bar di HP----- */
+@media screen and (max-width: 768px) {
+    .menu-toggle { display: flex; z-index: 10001; }
+
+    nav {
+        position: fixed; right: -100%; top: 0; 
+        height: 100vh; width: 80%;
+        background: rgba(10, 10, 10, 0.95); 
+        backdrop-filter: blur(15px); 
+        transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 10000;
+        border-left: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    nav.active { right: 0; box-shadow: -10px 0 30px rgba(0,0,0,0.5); }
+    nav ul { flex-direction: column; padding: 120px 40px; gap: 40px; align-items: flex-start; }
+    nav ul li a { font-size: 1.2rem; letter-spacing: 3px; }
+
+    /* Animasi Hamburger jadi X */
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); background: var(--accent); }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); background: var(--accent); }
+}
+
+/* -----Animasi Chart----- */
+/* --- SHOPPING CART MODAL --- */
+.cart-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+    z-index: 10002; display: none; align-items: center; justify-content: center;
+}
+
+.cart-content {
+    background: var(--card-bg); width: 90%; max-width: 500px;
+    padding: 40px; border-radius: 30px; border: 1px solid #333;
+    position: relative; text-align: center;
+}
+
+.close-cart {
+    position: absolute; top: 20px; right: 25px;
+    font-size: 30px; cursor: pointer; color: var(--accent);
+}
+
+#cart-items-list {
+    max-height: 350px; overflow-y: auto; margin-bottom: 20px;
+}
+
+/* Item di dalem Cart */
+.cart-item {
+    display: flex; align-items: center; gap: 15px;
+    background: #111; padding: 15px; border-radius: 15px;
+    margin-bottom: 15px; border: 1px solid #222;
+}
+
+.cart-item img { width: 60px; height: 60px; border-radius: 10px; object-fit: cover; }
+
+.cart-item-info { flex: 1; text-align: left; }
+.cart-item-info h4 { font-size: 0.9rem; color: #fff; margin-bottom: 3px; }
+.cart-item-info p { color: var(--accent); font-weight: 600; font-size: 0.85rem; }
+
+.remove-item {
+    background: none; border: none; color: #ff4444;
+    cursor: pointer; font-size: 1.2rem; padding: 5px;
+}
+
+.total-price-box {
+    display: flex; justify-content: space-between;
+    margin: 20px 0; font-weight: 600; border-top: 1px solid #333; padding-top: 15px;
+}
+
+/* --- MEDIA QUERY UNTUK HP (TAMBAHKAN DI PALING BAWAH CSS) --- */
+@media screen and (max-width: 768px) {
+    /* Perbaikan Katalog di HP */
+    .product-grid {
+        grid-template-columns: 1fr; /* Paksa 1 kolom biar lega */
+        padding: 20px 5%;
+    }
+
+    /* Perbaikan About Page di HP */
+    .about-hero {
+        flex-direction: column; /* Foto di atas, teks di bawah */
+        gap: 30px;
+        text-align: center;
+    }
+
+    .about-text-main {
+        order: 2;
+    }
+
+    .about-img-frame {
+        order: 1;
+        max-width: 100%;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr; /* Vision & Quality jadi tumpuk atas-bawah */
+        gap: 20px;
+    }
+
+    .title-playfair {
+        font-size: 2.2rem;
+    }
+
+    .line-gold {
+        margin: 20px auto;
+    }
+}
+
+/* --- SINKRONISASI TEMA INDEX --- */
+.subtitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Biar footer di semua page gak cuma teks doang */
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: #050505;
+    border-top: 1px solid #111;
+}
+
+footer p {
+    color: #444;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- FIX RESPONSIVE UNTUK SECTION BARU DI INDEX --- */
+@media screen and (max-width: 768px) {
+    .features-home {
+        padding: 60px 5% !important;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem; /* Biar judul hero gak kepotong di HP */
+    }
+}
+
+/*/---BAGIAN BUAT FUNGSI CHART YANG BARU---/*/
+.checkout-form {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.checkout-form .input-group input, 
+.checkout-form .input-group textarea {
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    font-size: 0.85rem;
+}
+
+.checkout-form .input-group input:focus, 
+.checkout-form .input-group textarea:focus {
+    border-color: var(--accent);
+}
